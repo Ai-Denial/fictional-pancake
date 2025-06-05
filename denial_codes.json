@@ -1,0 +1,49 @@
+{
+  "CO-22": {
+    "description": "Bundled service under another procedure",
+    "appeal_strategy": "Prove separate procedures with documentation",
+    "evidence_tips": "Operative notes with time/site differences",
+    "rarcs": {
+      "M59": "Separate procedures billed together; documentation required"
+    },
+    "payers": {
+      "Aetna": {
+        "modifier_tip": "Use modifier XU (Aetna prefers this over 59)",
+        "policy_ref": "Aetna Modifier 59/XU Policy (Page 4)",
+        "extra_notes": "Cite NCCI edits when billing multiple procedures"
+      },
+      "UHC": {
+        "modifier_tip": "Accepts 59 but prefers X-modifiers when applicable",
+        "policy_ref": "UHC CMS Modifier Policy",
+        "extra_notes": "Documentation must justify unbundling"
+      },
+      "Medicare": {
+        "modifier_tip": "Modifier 59 acceptable if supported by NCCI edit",
+        "policy_ref": "Medicare Claims Manual Chapter 1, Section E.1.b"
+      }
+    }
+  },
+  "PR-204": {
+    "description": "Missing prior authorization",
+    "appeal_strategy": "Submit proof of authorization attempt or retro approval",
+    "evidence_tips": "Payer portal screenshot or call logs",
+    "rarcs": {
+      "N362": "Required prior authorization missing"
+    },
+    "payers": {
+      "Aetna": {
+        "modifier_tip": "Include call log ID or fax confirmation of auth request",
+        "policy_ref": "Aetna Precertification Denials Guide",
+        "extra_notes": "Retro-auth may be allowed if submitted within 10 days"
+      },
+      "UHC": {
+        "modifier_tip": "Attach Optum portal request receipt if applicable",
+        "policy_ref": "UHC Prior Auth Reference Guide"
+      },
+      "Medicare": {
+        "modifier_tip": "Usually not required for most outpatient services",
+        "policy_ref": "CMS Prior Authorization Guidelines"
+      }
+    }
+  }
+}
