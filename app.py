@@ -164,3 +164,36 @@ if uploaded_files:
         st.success("✅ All PDFs merged successfully.")
         with open(merged_path, "rb") as f:
             st.download_button("📥 Download Merged Appeal Packet", f, file_name="merged_appeal_packet.pdf")
+
+# ----------------------------
+# 💬 Feedback & Suggest New Codes
+# ----------------------------
+st.markdown("---")
+st.subheader("💬 Feedback & Help Us Improve")
+
+feedback = st.text_area("Can't find your denial code or have suggestions? Let us know:")
+eob_file = st.file_uploader("📤 Upload EOB or screenshot (PDF, JPG, PNG) to help us expand our code library:", type=["pdf", "jpg", "jpeg", "png"])
+
+if st.button("Submit Feedback"):
+    feedback_logged = False
+    eob_uploaded = False
+
+    # Save feedback
+    if feedback:
+        os.makedirs("feedback_logs", exist_ok=True)
+        with open(os.path.join("feedback_logs", "user_feedback.log"), "a") as log_file:
+            log_file.write(f"{feedback}\n---\n")
+        feedback_logged = True
+
+    # Save EOB upload
+    if eob_file:
+        os.makedirs("eob_uploads", exist_ok=True)
+        with open(os.path.join("eob_uploads", eob_file.name), "wb") as f:
+            f.write(eob_file.read())
+        eob_uploaded = True
+
+    # Message result
+    if feedback_logged or eob_uploaded:
+        st.success("✅ Thanks! We’ve received your input.")
+    else:
+        st.warning("⚠️ Please write feedback or upload a file before submitting.")
